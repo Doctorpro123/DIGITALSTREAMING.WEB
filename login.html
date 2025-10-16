@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Digital Streaming</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-box">
+            <!-- LOGO -->
+            <div class="logo-section">
+                <div class="logo">🎬</div>
+                <div class="logo-text">CuentasPremium</div>
+                <div class="subtitle">Accede a tu cuenta</div>
+            </div>
+
+            <!-- TABS -->
+            <div class="tabs">
+                <div class="tab active" onclick="cambiarTab('login')">Iniciar Sesión</div>
+                <div class="tab" onclick="cambiarTab('registro')">Registrarse</div>
+            </div>
+
+            <!-- ALERTAS -->
+            <div id="alert" class="alert"></div>
+
+            <!-- FORMULARIO DE LOGIN -->
+            <div id="login-form" class="form-section active">
+                <form onsubmit="iniciarSesion(event)">
+                    <div class="form-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="login-email" 
+                            placeholder="tu@email.com"
+                            required
+                        >
+                        <span class="error-message" id="login-email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <div class="password-toggle">
+                            <input 
+                                type="password" 
+                                id="login-password" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <span class="toggle-icon" onclick="togglePassword('login-password')">👁️</span>
+                        </div>
+                        <span class="error-message" id="login-password-error"></span>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="forgot-link" onclick="recuperarPassword(event)">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </form>
+            </div>
+
+            <!-- FORMULARIO DE REGISTRO -->
+            <div id="registro-form" class="form-section">
+                <form onsubmit="registrarUsuario(event)">
+                    <div class="form-group">
+                        <label for="registro-nombre">Nombre Completo</label>
+                        <input 
+                            type="text" 
+                            id="registro-nombre" 
+                            placeholder="Juan Pérez"
+                            required
+                        >
+                        <span class="error-message" id="registro-nombre-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registro-email">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="registro-email" 
+                            placeholder="tu@email.com"
+                            required
+                        >
+                        <span class="error-message" id="registro-email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registro-password">Contraseña</label>
+                        <div class="password-toggle">
+                            <input 
+                                type="password" 
+                                id="registro-password" 
+                                placeholder="Mínimo 6 caracteres"
+                                required
+                                oninput="verificarFortalezaPassword()"
+                            >
+                            <span class="toggle-icon" onclick="togglePassword('registro-password')">👁️</span>
+                        </div>
+                        <div id="password-strength" class="password-strength">
+                            <div id="strength-bar" class="strength-bar"></div>
+                        </div>
+                        <div id="strength-text" class="strength-text"></div>
+                        <span class="error-message" id="registro-password-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registro-confirmar">Confirmar Contraseña</label>
+                        <div class="password-toggle">
+                            <input 
+                                type="password" 
+                                id="registro-confirmar" 
+                                placeholder="Repite tu contraseña"
+                                required
+                            >
+                            <span class="toggle-icon" onclick="togglePassword('registro-confirmar')">👁️</span>
+                        </div>
+                        <span class="error-message" id="registro-confirmar-error"></span>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="acepto-terminos" required>
+                            <span>Acepto los términos y condiciones</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+                </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/login.js"></script>
+</body>
+</html>

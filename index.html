@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Streaming</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='#'">🎬 CuentasPremium</div>
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#" onclick="mostrarCarrito()">🛒 Carrito (<span id="contador-carrito">0</span>)</a></li>
+                <li><a href="#" onclick="mostrarLogin()" id="menu-usuario">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <h1>🎯 Cuentas Premium al Mejor Precio</h1>
+        <p>Netflix, Spotify, Disney+, HBO Max y más...</p>
+        <a href="#productos" class="btn-hero">Ver Productos</a>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="productos-section" id="productos">
+        <h2 class="section-title">🔥 Productos Destacados</h2>
+        
+        <!-- FILTROS POR CATEGORÍA -->
+        <div class="categorias">
+            <button class="categoria-btn active" onclick="filtrarCategoria('todas')">Todas</button>
+            <button class="categoria-btn" onclick="filtrarCategoria('streaming')">Streaming</button>
+            <button class="categoria-btn" onclick="filtrarCategoria('musica')">Música</button>
+            <button class="categoria-btn" onclick="filtrarCategoria('diseño')">Diseño</button>
+            <button class="categoria-btn" onclick="filtrarCategoria('productividad')">Productividad</button>
+        </div>
+
+        <div id="productos-grid" class="productos-grid">
+            <!-- Los productos se cargan aquí con JavaScript -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🎬 CuentasPremium</h3>
+                <p>Las mejores cuentas premium al mejor precio del mercado.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 ventas@digitalstreaming.com</li>
+                    <li>📱 WhatsApp: +51 953 072 156</li>
+                    <li>⏰ Atención: 24/7</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Métodos de Pago</h3>
+                <p>💳 Visa • Mastercard<br>💰 PayPal • Yape • Plin<br>🏦 Transferencia Bancaria</p>
+            </div>
+        </div>
+        <p style="border-top: 1px solid #333; padding-top: 1rem; margin-top: 2rem;">
+            &copy; 2025 Digital Streaming. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- CARRITO FLOTANTE -->
+    <div class="carrito-flotante" onclick="mostrarCarrito()">
+        🛒
+        <span class="badge-carrito" id="badge-carrito">0</span>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
